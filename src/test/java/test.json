@@ -1,0 +1,8 @@
+{
+  "stream": "stream-one",
+  "partition": "1",
+  "key": "a2V5Mg==",
+  "value": "eyJpZCI6IjAiLCAidGVzdCI6ICJtZXNzYWdlIGZyb20gQ0xJIn0=",
+  "offset": 0,
+  "timestamp": 1667209997584
+}
