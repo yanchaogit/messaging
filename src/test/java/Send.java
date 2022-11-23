@@ -10,12 +10,14 @@ public class Send {
 
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-//        factory.setHost("138.3.208.33");
-//        factory.setUsername("admin");
-//        factory.setPassword("welcome1");
-        factory.setHost("193.122.116.251");
-        factory.setUsername("test");
+        factory.setHost("138.3.208.33");
+        factory.setVirtualHost("virtual01");
+        factory.setUsername("admin");
         factory.setPassword("welcome1");
+
+//        factory.setHost("193.122.116.251");
+//        factory.setUsername("test");
+//        factory.setPassword("welcome1");
         try (Connection connection = factory.newConnection();
              Channel channel = connection.createChannel()) {
             channel.queueDeclare(QUEUE_NAME, false, false, false, null);

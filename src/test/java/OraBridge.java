@@ -2,26 +2,25 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
+
 import java.nio.charset.StandardCharsets;
 
-public class Recv {
+public class OraBridge {
 
-    private final static String QUEUE_NAME = "hello";
+    private final static String QUEUE_NAME = "stress-test";
 
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("138.3.208.33");
-        factory.setVirtualHost("virtual01");
-        factory.setUsername("admin");
-        factory.setPassword("welcome1");
-
-//        factory.setHost("193.122.116.251");
-//        factory.setUsername("test");
+//        factory.setHost("138.3.208.33");
+//        factory.setUsername("admin");
 //        factory.setPassword("welcome1");
+        factory.setHost("193.122.116.251");
+        factory.setUsername("admin");
+        factory.setPassword("Pass@word1");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
-        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+//        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
